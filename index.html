@@ -1,454 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TIRTIR · Glow & Glam</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIRTIR · Glow & Glam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- COOKIE POPUP -->
-  <div id="cookiePopup" class="cookie-overlay">
-    <div class="cookie-card">
-      <i class="fas fa-cookie-bite" style="font-size: 2.5rem; color: var(--accent);"></i>
-      <h2>🍪 We Value Your Privacy</h2>
-      <p>We use cookies to personalize content and analyze traffic. By clicking "Accept All", you consent to our use of cookies.</p>
-      <div class="cookie-actions">
-        <button id="acceptCookies" class="btn primary glow">Accept All</button>
-        <button id="declineCookies" class="btn secondary">Decline</button>
-      </div>
+    <!-- COOKIE POPUP -->
+    <div id="cookiePopup" class="cookie-overlay">
+        <div class="cookie-card">
+            <i class="fas fa-cookie-bite" style="font-size: 2.5rem; color: var(--accent);"></i>
+            <h2>🍪 We Value Your Privacy</h2>
+            <p>We use cookies to personalize content and analyze traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+            <div class="cookie-actions">
+                <button id="acceptCookies" class="btn primary glow">Accept All</button>
+                <button id="declineCookies" class="btn secondary">Decline</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- LOGIN MODAL -->
-  <div id="loginModal" class="login-overlay">
-    <div class="login-card">
-      <span id="closeLogin" class="close-login">&times;</span>
-      <h2><i class="fas fa-user-circle"></i> Create Account</h2>
-      <form id="loginForm">
-        <div class="input-group">
-          <label><i class="fas fa-user"></i> Full Name</label>
-          <input type="text" id="loginName" placeholder="John Doe" required />
-          <small class="error-msg" id="nameError"></small>
-        </div>
-        <div class="input-group">
-          <label><i class="fas fa-envelope"></i> Email</label>
-          <input type="email" id="loginEmail" placeholder="you@example.com" required />
-          <small class="error-msg" id="emailError"></small>
-        </div>
-        <div class="input-group">
-          <label><i class="fas fa-phone"></i> Phone Number</label>
-          <input type="tel" id="loginPhone" placeholder="+91 98765 43210" required />
-          <small class="error-msg" id="phoneError"></small>
-        </div>
-        <div class="input-group">
-          <label><i class="fas fa-lock"></i> Password</label>
-          <div class="password-wrapper">
-            <input type="password" id="loginPassword" placeholder="min 8 chars with number" required />
-            <span class="toggle-password" onclick="togglePassword('loginPassword', this)"><i class="fas fa-eye"></i></span>
-          </div>
-          <small class="error-msg" id="passError"></small>
-        </div>
-        <div class="input-group">
-          <label><i class="fas fa-check-circle"></i> Confirm Password</label>
-          <div class="password-wrapper">
-            <input type="password" id="loginConfirm" placeholder="re-enter password" required />
-            <span class="toggle-password" onclick="togglePassword('loginConfirm', this)"><i class="fas fa-eye"></i></span>
-          </div>
-          <small class="error-msg" id="confirmError"></small>
-        </div>
-        <button type="submit" class="btn primary full glow">Register <i class="fas fa-arrow-right"></i></button>
-        <p class="form-foot">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
-      </form>
-    </div>
-  </div>
-
-  <!-- MAIN APP -->
-  <div id="app">
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="header-top">
-        <div class="header-left">
-          <h1 class="logo"><i class="fas fa-moon" id="themeIcon"></i> TIRTIR</h1>
-          <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-sun" id="sunIcon"></i>
-            <i class="fas fa-moon" id="moonIcon"></i>
-          </div>
-        </div>
-        <div class="header-right">
-          <button id="loginBtn" class="btn secondary"><i class="fas fa-sign-in-alt"></i> Login</button>
-          <button id="cartBtn" class="btn primary"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount">0</span></button>
-          <button id="wishBtn" class="btn secondary"><i class="fas fa-heart"></i> Wishlist <span id="wishCount">0</span></button>
-        </div>
-      </div>
-      <!-- Navigation Bar -->
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
-          <li class="dropdown">
-            <a href="#"><i class="fas fa-shopping-bag"></i> Shop <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#" data-cat="cushion">Cushions</a></li>
-              <li><a href="#" data-cat="tint">Lip Tints</a></li>
-              <li><a href="#" data-cat="skincare">Skincare</a></li>
-              <li><a href="#" data-cat="lipcare">Lip Care</a></li>
-              <li><a href="#" data-cat="facemask">Face Mask</a></li>
-              <li><a href="#" data-cat="all">All Products</a></li>
-            </ul>
-          </li>
-          <li><a href="#" class="nav-link" data-page="about"><i class="fas fa-info-circle"></i> About</a></li>
-          <li><a href="#" class="nav-link" data-page="contact"><i class="fas fa-envelope"></i> Contact</a></li>
-          <li><a href="#" class="nav-link" data-page="offers"><i class="fas fa-tags"></i> Offers</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- PAGE CONTENT -->
-    <div id="pageContent">
-      <!-- HOME PAGE (default) -->
-      <div id="homePage" class="page-content active">
-        <!-- BRAND AMBASSADOR SLIDESHOW -->
-        <section class="slideshow">
-          <div class="slideshow-container">
-            <div class="slide active">
-              <img src="https://via.placeholder.com/1200x400/ff1744/fff?text=Taehyung+TIRTIR+2026" alt="Taehyung - TIRTIR Ambassador" />
-              <div class="slide-caption">🌟 TAEHYUNG × TIRTIR - The Perfect Glow</div>
-            </div>
-            <div class="slide">
-              <img src="https://via.placeholder.com/1200x400/e63946/fff?text=Taehyung+New+Collection" alt="Taehyung - New Collection" />
-              <div class="slide-caption">✨ Discover the New TIRTIR Collection</div>
-            </div>
-            <div class="slide">
-              <img src="https://via.placeholder.com/1200x400/ff6b6b/fff?text=Taehyung+Best+Sellers" alt="Taehyung - Best Sellers" />
-              <div class="slide-caption">🔥 Best Sellers - As Seen on Taehyung</div>
-            </div>
-            <button class="slide-prev" onclick="changeSlide(-1)">❮</button>
-            <button class="slide-next" onclick="changeSlide(1)">❯</button>
-            <div class="slide-dots">
-              <span class="dot active" onclick="currentSlide(0)"></span>
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-            </div>
-          </div>
-        </section>
-
-        <!-- HERO SECTION -->
-        <section class="hero">
-          <div class="hero-content">
-            <h2>Glow Up with TIRTIR</h2>
-            <p>K-Beauty essentials for your everyday radiance.</p>
-            <button class="btn primary glow" id="heroShopBtn">Shop New Arrivals <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </section>
-
-        <!-- STATS BAR -->
-        <div class="stats-bar">
-          <div class="stat-item"><i class="fas fa-users"></i><span>1M+</span><p>Happy Customers</p></div>
-          <div class="stat-item"><i class="fas fa-palette"></i><span>50+</span><p>Shades</p></div>
-          <div class="stat-item"><i class="fas fa-truck"></i><span>Free</span><p>Shipping on ₹999+</p></div>
-          <div class="stat-item"><i class="fas fa-star"></i><span>4.8★</span><p>Average Rating</p></div>
-        </div>
-
-        <!-- MAIN CONTENT + SIDEBAR -->
-        <div class="main-wrap">
-          <!-- SIDEBAR -->
-          <aside class="sidebar">
-            <div class="side-card">
-              <h3><i class="fas fa-calendar-day"></i> Events</h3>
-              <ul class="event-list">
-                <li><i class="fas fa-circle" style="color: var(--accent);"></i> Summer Sale – 20% off</li>
-                <li><i class="fas fa-circle" style="color: var(--accent);"></i> New Arrivals: Tint Drops</li>
-                <li><i class="fas fa-circle" style="color: var(--accent);"></i> Free Shipping over ₹999</li>
-              </ul>
-            </div>
-            <div class="side-card">
-              <h3><i class="fas fa-tags"></i> Categories</h3>
-              <div class="category-tabs" id="categoryTabs">
-                <button class="cat-tab active" data-cat="all">All</button>
-                <button class="cat-tab" data-cat="cushion">Cushion</button>
-                <button class="cat-tab" data-cat="tint">Tint</button>
-                <button class="cat-tab" data-cat="skincare">Skincare</button>
-                <button class="cat-tab" data-cat="lipcare">Lip Care</button>
-                <button class="cat-tab" data-cat="facemask">Face Mask</button>
-              </div>
-            </div>
-            <div class="side-card" id="clickTabs">
-              <h3><i class="fas fa-mouse-pointer"></i> Click Tabs</h3>
-              <div class="tab-buttons">
-                <button class="click-tab active" data-tab="tab1">Popular</button>
-                <button class="click-tab" data-tab="tab2">New</button>
-              </div>
-              <div class="tab-content" id="tab1Content">🔥 Best-selling Cushion</div>
-              <div class="tab-content hidden" id="tab2Content">✨ New Tint Collection</div>
-            </div>
-          </aside>
-
-          <!-- PRODUCT GRID -->
-          <section class="product-grid" id="productGrid"></section>
-        </div>
-
-        <!-- TESTIMONIALS -->
-        <section class="testimonials">
-          <h2>What Our TIRTIR Girls Say</h2>
-          <div class="testimonial-grid">
-            <div class="testimonial-card"><p>"This cushion is my holy grail! Perfect coverage."</p><h4>- Ananya S.</h4></div>
-            <div class="testimonial-card"><p>"The tint lasts all day without drying my lips."</p><h4>- Priya M.</h4></div>
-            <div class="testimonial-card"><p>"Finally found my shade! Love the lightweight feel."</p><h4>- Riya K.</h4></div>
-          </div>
-        </section>
-      </div>
-
-      <!-- ABOUT PAGE -->
-      <div id="aboutPage" class="page-content">
-        <section class="about-section">
-          <h2><i class="fas fa-info-circle"></i> About TIRTIR</h2>
-          <div class="about-content">
-            <div class="about-text">
-              <h3>Our Story</h3>
-              <p>TIRTIR is a revolutionary K-Beauty brand that combines cutting-edge skincare technology with the finest ingredients from nature. Founded in 2020, we've been on a mission to make everyone feel beautiful in their own skin.</p>
-              <h3>Our Philosophy</h3>
-              <p>We believe that beauty is not about covering up, but about enhancing your natural radiance. Every TIRTIR product is carefully formulated to nourish your skin while providing the coverage you desire.</p>
-              <h3>Why TIRTIR?</h3>
-              <ul>
-                <li>✓ Dermatologically tested & hypoallergenic</li>
-                <li>✓ Cruelty-free & vegan-friendly</li>
-                <li>✓ Suitable for all skin types</li>
-                <li>✓ Award-winning formulations</li>
-              </ul>
-            </div>
-            <div class="about-image">
-              <img src="https://via.placeholder.com/500x400/ff1744/fff?text=TIRTIR+Brand+Story" alt="About TIRTIR" />
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- CONTACT PAGE -->
-      <div id="contactPage" class="page-content">
-        <section class="contact-section">
-          <h2><i class="fas fa-envelope"></i> Contact Us</h2>
-          <div class="contact-grid">
-            <div class="contact-info">
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                  <h4>Address</h4>
-                  <p>123 K-Beauty Street, Seoul, South Korea</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <div>
-                  <h4>Phone</h4>
-                  <p>+91 98765 43210</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                  <h4>Email</h4>
-                  <p>hello@tirtir.com</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-clock"></i>
-                <div>
-                  <h4>Working Hours</h4>
-                  <p>Mon - Sat: 10:00 AM - 8:00 PM</p>
-                </div>
-              </div>
-            </div>
-            <div class="contact-form">
-              <h3>Send us a message</h3>
-              <form id="contactForm">
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="login-overlay">
+        <div class="login-card">
+            <span id="closeLogin" class="close-login">&times;</span>
+            <h2><i class="fas fa-user-circle"></i> Create Account</h2>
+            <form id="loginForm">
                 <div class="input-group">
-                  <input type="text" placeholder="Your Name" required />
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="loginName" placeholder="John Doe" required />
+                    <small class="error-msg" id="nameError"></small>
                 </div>
                 <div class="input-group">
-                  <input type="email" placeholder="Your Email" required />
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required />
+                    <small class="error-msg" id="emailError"></small>
                 </div>
                 <div class="input-group">
-                  <textarea rows="4" placeholder="Your Message" required></textarea>
+                    <label><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="loginPhone" placeholder="+91 98765 43210" required />
+                    <small class="error-msg" id="phoneError"></small>
                 </div>
-                <button type="submit" class="btn primary glow">Send Message</button>
-              </form>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- OFFERS PAGE -->
-      <div id="offersPage" class="page-content">
-        <section class="offers-section">
-          <h2><i class="fas fa-tags"></i> Special Offers</h2>
-          <div class="offers-grid">
-            <div class="offer-card">
-              <div class="offer-badge">🔥 HOT</div>
-              <h3>Summer Sale</h3>
-              <p>Get 20% off on all cushion foundations</p>
-              <div class="offer-code">Use code: SUMMER20</div>
-              <button class="btn primary glow" onclick="applyOffer('SUMMER20')">Apply Offer</button>
-            </div>
-            <div class="offer-card">
-              <div class="offer-badge">✨ NEW</div>
-              <h3>Buy 2 Get 1 Free</h3>
-              <p>On all lip tint products</p>
-              <div class="offer-code">Use code: TINT3</div>
-              <button class="btn primary glow" onclick="applyOffer('TINT3')">Apply Offer</button>
-            </div>
-            <div class="offer-card">
-              <div class="offer-badge">🚚 FREE</div>
-              <h3>Free Shipping</h3>
-              <p>On orders above ₹999</p>
-              <div class="offer-code">Auto-applied</div>
-              <button class="btn secondary">Active</button>
-            </div>
-            <div class="offer-card">
-              <div class="offer-badge">🎯 LIMITED</div>
-              <h3>First Order</h3>
-              <p>15% off on your first purchase</p>
-              <div class="offer-code">Use code: FIRST15</div>
-              <button class="btn primary glow" onclick="applyOffer('FIRST15')">Apply Offer</button>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="footer-col">
-        <h4>TIRTIR</h4>
-        <p>© 2026 · K-Beauty Essence</p>
-        <div class="footer-links">
-          <a href="#" class="nav-link" data-page="about">About</a>
-          <a href="#" class="nav-link" data-page="contact">Contact</a>
-          <a href="#" id="feedbackLink">Feedback</a>
+                <div class="input-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="loginPassword" placeholder="min 8 chars with number" required />
+                        <span class="toggle-password" onclick="togglePassword('loginPassword', this)"><i class="fas fa-eye"></i></span>
+                    </div>
+                    <small class="error-msg" id="passError"></small>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-check-circle"></i> Confirm Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="loginConfirm" placeholder="re-enter password" required />
+                        <span class="toggle-password" onclick="togglePassword('loginConfirm', this)"><i class="fas fa-eye"></i></span>
+                    </div>
+                    <small class="error-msg" id="confirmError"></small>
+                </div>
+                <button type="submit" class="btn primary full glow">Register <i class="fas fa-arrow-right"></i></button>
+                <p class="form-foot">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+            </form>
         </div>
-      </div>
-      <div class="footer-col">
-        <i class="fas fa-cc-upi"></i> UPI · COD
-        <i class="fas fa-truck"></i> Free Delivery
-      </div>
-      <div class="footer-col">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </footer>
-  </div>
+    </div>
 
-  <!-- CART POPUP -->
-  <div id="cartPopup" class="cart-overlay hidden">
-    <div class="cart-card">
-      <span id="closeCart" class="close-cart">&times;</span>
-      <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
-      <div id="cartItems"></div>
-      <div id="cartTotal" style="font-weight: bold; margin: 1rem 0;"></div>
-      <div id="offerApplied" style="color: var(--accent); margin: 0.5rem 0;"></div>
-      <div class="payment-options">
-        <button class="btn secondary" id="codPay">Cash on Delivery</button>
-        <button class="btn secondary" id="upiPay">UPI</button>
-        <button class="btn secondary" id="gpayPay">Google Pay</button>
-        <button class="btn secondary" id="phonepePay">PhonePe</button>
-        <button class="btn secondary" id="paytmPay">Paytm</button>
-      </div>
-      <div id="upiPinSection" class="hidden" style="margin: 1rem 0;">
-        <div class="input-group">
-          <label><i class="fas fa-key"></i> Enter UPI PIN (4 digits)</label>
-          <div class="password-wrapper">
-            <input type="password" id="upiPin" placeholder="1234" maxlength="4" pattern="[0-9]{4}" />
-            <span class="toggle-password" onclick="togglePassword('upiPin', this)"><i class="fas fa-eye"></i></span>
-          </div>
-          <small id="pinError" class="error-msg"></small>
+    <!-- MAIN APP -->
+    <div id="app">
+        <!-- HEADER -->
+        <header class="site-header">
+            <div class="header-top">
+                <div class="header-left">
+                    <h1 class="logo"><i class="fas fa-moon" id="themeIcon"></i> TIRTIR</h1>
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun" id="sunIcon"></i>
+                        <i class="fas fa-moon" id="moonIcon"></i>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button id="loginBtn" class="btn secondary"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button id="cartBtn" class="btn primary"><i class="fas fa-shopping-cart"></i> Cart <span id="cartCount">0</span></button>
+                    <button id="wishBtn" class="btn secondary"><i class="fas fa-heart"></i> Wishlist <span id="wishCount">0</span></button>
+                </div>
+            </div>
+            <!-- Navigation Bar -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-shopping-bag"></i> Shop <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-cat="cushion">Cushions</a></li>
+                            <li><a href="#" data-cat="tint">Lip Tints</a></li>
+                            <li><a href="#" data-cat="skincare">Skincare</a></li>
+                            <li><a href="#" data-cat="lipcare">Lip Care</a></li>
+                            <li><a href="#" data-cat="facemask">Face Mask</a></li>
+                            <li><a href="#" data-cat="all">All Products</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="nav-link" data-page="about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#" class="nav-link" data-page="offers"><i class="fas fa-tags"></i> Offers</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <div id="pageContent">
+            <!-- HOME PAGE -->
+            <div id="homePage" class="page-section active">
+                <!-- BRAND AMBASSADOR SLIDESHOW -->
+                <section class="slideshow">
+                    <div class="slideshow-container">
+                        <div class="slide active">
+                            <img src="https://images.unsplash.com/photo-1508700115894-d9c7f2f55b7a?w=1200&h=400&fit=crop" alt="Taehyung - TIRTIR Ambassador" />
+                            <div class="slide-caption">🌟 TAEHYUNG × TIRTIR - The Perfect Glow</div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1200&h=400&fit=crop" alt="Taehyung - New Collection" />
+                            <div class="slide-caption">✨ Discover the New TIRTIR Collection</div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1531842477197-54acf89bff98?w=1200&h=400&fit=crop" alt="Taehyung - Best Sellers" />
+                            <div class="slide-caption">🔥 Best Sellers - As Seen on Taehyung</div>
+                        </div>
+                        <button class="slide-prev" onclick="changeSlide(-1)">❮</button>
+                        <button class="slide-next" onclick="changeSlide(1)">❯</button>
+                        <div class="slide-dots">
+                            <span class="dot active" onclick="currentSlide(0)"></span>
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HERO SECTION -->
+                <section class="hero">
+                    <div class="hero-content">
+                        <h2>Glow Up with TIRTIR</h2>
+                        <p>K-Beauty essentials for your everyday radiance.</p>
+                        <button class="btn primary glow" id="heroShopBtn">Shop New Arrivals <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </section>
+
+                <!-- STATS BAR -->
+                <div class="stats-bar">
+                    <div class="stat-item"><i class="fas fa-users"></i><span>1M+</span><p>Happy Customers</p></div>
+                    <div class="stat-item"><i class="fas fa-palette"></i><span>50+</span><p>Shades</p></div>
+                    <div class="stat-item"><i class="fas fa-truck"></i><span>Free</span><p>Shipping on ₹999+</p></div>
+                    <div class="stat-item"><i class="fas fa-star"></i><span>4.8★</span><p>Average Rating</p></div>
+                </div>
+
+                <!-- MAIN CONTENT + SIDEBAR -->
+                <div class="main-wrap">
+                    <!-- SIDEBAR -->
+                    <aside class="sidebar">
+                        <div class="side-card">
+                            <h3><i class="fas fa-calendar-day"></i> Events</h3>
+                            <ul class="event-list">
+                                <li><i class="fas fa-circle" style="color: var(--accent);"></i> Summer Sale – 20% off</li>
+                                <li><i class="fas fa-circle" style="color: var(--accent);"></i> New Arrivals: Tint Drops</li>
+                                <li><i class="fas fa-circle" style="color: var(--accent);"></i> Free Shipping over ₹999</li>
+                            </ul>
+                        </div>
+                        <div class="side-card">
+                            <h3><i class="fas fa-tags"></i> Categories</h3>
+                            <div class="category-tabs" id="categoryTabs">
+                                <button class="cat-tab active" data-cat="all">All</button>
+                                <button class="cat-tab" data-cat="cushion">Cushion</button>
+                                <button class="cat-tab" data-cat="tint">Tint</button>
+                                <button class="cat-tab" data-cat="skincare">Skincare</button>
+                                <button class="cat-tab" data-cat="lipcare">Lip Care</button>
+                                <button class="cat-tab" data-cat="facemask">Face Mask</button>
+                            </div>
+                        </div>
+                        <div class="side-card" id="clickTabs">
+                            <h3><i class="fas fa-mouse-pointer"></i> Click Tabs</h3>
+                            <div class="tab-buttons">
+                                <button class="click-tab active" data-tab="tab1">Popular</button>
+                                <button class="click-tab" data-tab="tab2">New</button>
+                            </div>
+                            <div class="tab-content" id="tab1Content">🔥 Best-selling Cushion</div>
+                            <div class="tab-content hidden" id="tab2Content">✨ New Tint Collection</div>
+                        </div>
+                    </aside>
+
+                    <!-- PRODUCT GRID -->
+                    <section class="product-grid" id="productGrid"></section>
+                </div>
+
+                <!-- TESTIMONIALS -->
+                <section class="testimonials">
+                    <h2>What Our TIRTIR Girls Say</h2>
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card"><p>"This cushion is my holy grail! Perfect coverage."</p><h4>- Ananya S.</h4></div>
+                        <div class="testimonial-card"><p>"The tint lasts all day without drying my lips."</p><h4>- Priya M.</h4></div>
+                        <div class="testimonial-card"><p>"Finally found my shade! Love the lightweight feel."</p><h4>- Riya K.</h4></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ABOUT PAGE -->
+            <div id="aboutPage" class="page-section hidden">
+                <section class="about-section">
+                    <h2><i class="fas fa-info-circle"></i> About TIRTIR</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Your K-Beauty Destination</h3>
+                            <p>TIRTIR is a leading K-Beauty brand dedicated to providing innovative, high-quality skincare and makeup products that enhance your natural beauty.</p>
+                            <p>Founded in 2020, TIRTIR has quickly become a favorite among beauty enthusiasts worldwide, with a commitment to:</p>
+                            <ul>
+                                <li>🌟 Dermatologically tested formulas</li>
+                                <li>🌿 Cruelty-free and vegan-friendly products</li>
+                                <li>💧 Hydrating and skin-loving ingredients</li>
+                                <li>🎨 Inclusive shade ranges for all skin tones</li>
+                            </ul>
+                            <h3>Our Mission</h3>
+                            <p>To empower individuals to express their unique beauty through high-performance, accessible K-Beauty products.</p>
+                        </div>
+                        <div class="about-image">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop" alt="TIRTIR Beauty" />
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- CONTACT PAGE -->
+            <div id="contactPage" class="page-section hidden">
+                <section class="contact-section">
+                    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Address</h4>
+                                    <p>123 K-Beauty Street, Gangnam-gu, Seoul, South Korea</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+91 98765 43210</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>hello@tirtir.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Working Hours</h4>
+                                    <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="contact-form" id="contactForm">
+                            <h3>Send us a Message</h3>
+                            <div class="input-group">
+                                <label>Your Name</label>
+                                <input type="text" placeholder="Your Name" required />
+                            </div>
+                            <div class="input-group">
+                                <label>Your Email</label>
+                                <input type="email" placeholder="you@example.com" required />
+                            </div>
+                            <div class="input-group">
+                                <label>Subject</label>
+                                <input type="text" placeholder="Subject" required />
+                            </div>
+                            <div class="input-group">
+                                <label>Message</label>
+                                <textarea rows="4" placeholder="Your message..."></textarea>
+                            </div>
+                            <button type="submit" class="btn primary glow">Send Message <i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <!-- OFFERS PAGE -->
+            <div id="offersPage" class="page-section hidden">
+                <section class="offers-section">
+                    <h2><i class="fas fa-tags"></i> Special Offers</h2>
+                    <div class="offers-grid">
+                        <div class="offer-card">
+                            <div class="offer-badge">20% OFF</div>
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=200&fit=crop" alt="Summer Sale" />
+                            <h3>Summer Sale</h3>
+                            <p>Get 20% off on all cushion foundations. Use code: SUMMER20</p>
+                            <button class="btn primary glow">Shop Now</button>
+                        </div>
+                        <div class="offer-card">
+                            <div class="offer-badge">BUY 1 GET 1</div>
+                            <img src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=200&fit=crop" alt="Tint Offer" />
+                            <h3>Lip Tint Festival</h3>
+                            <p>Buy 1 get 1 free on all lip tints. Limited time offer!</p>
+                            <button class="btn primary glow">Shop Now</button>
+                        </div>
+                        <div class="offer-card">
+                            <div class="offer-badge">FREE SHIPPING</div>
+                            <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=200&fit=crop" alt="Free Shipping" />
+                            <h3>Free Delivery</h3>
+                            <p>Enjoy free shipping on orders above ₹999. No code needed!</p>
+                            <button class="btn primary glow">Shop Now</button>
+                        </div>
+                        <div class="offer-card">
+                            <div class="offer-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=200&fit=crop" alt="New Arrival" />
+                            <h3>New Arrival</h3>
+                            <p>Discover our new Hydro Glow Serum with 15% off.</p>
+                            <button class="btn primary glow">Shop Now</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
-        <button class="btn primary glow" id="confirmUpiPay">Confirm Payment</button>
-      </div>
-      <p id="paymentMsg" style="color: var(--accent);"></p>
-      <button id="clearCart" class="btn secondary">Clear Cart</button>
-    </div>
-  </div>
 
-  <!-- WISHLIST POPUP -->
-  <div id="wishPopup" class="cart-overlay hidden">
-    <div class="cart-card">
-      <span id="closeWish" class="close-cart">&times;</span>
-      <h2><i class="fas fa-heart"></i> Wishlist</h2>
-      <div id="wishItems"></div>
-      <button id="clearWish" class="btn secondary">Clear Wishlist</button>
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-col">
+                <h4>TIRTIR</h4>
+                <p>© 2026 · K-Beauty Essence</p>
+                <div class="footer-links">
+                    <a href="#" class="nav-link" data-page="about">About</a>
+                    <a href="#" class="nav-link" data-page="contact">Contact</a>
+                    <a href="#" id="feedbackLink">Feedback</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <i class="fas fa-cc-upi"></i> UPI · COD
+                <i class="fas fa-truck"></i> Free Delivery
+            </div>
+            <div class="footer-col">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
     </div>
-  </div>
 
-  <!-- CELEBRATION POPUP -->
-  <div id="celebrationPopup" class="celebration-overlay hidden">
-    <div class="celebration-card">
-      <div class="confetti">
-        <span>🎉</span><span>✨</span><span>🎊</span><span>🌟</span>
-        <span>🎉</span><span>✨</span><span>🎊</span><span>🌟</span>
-      </div>
-      <div class="celebration-content">
-        <i class="fas fa-trophy" style="font-size: 4rem; color: #f9d71c;"></i>
-        <h2>🎊 Order Placed Successfully!</h2>
-        <p>Thank you for shopping with TIRTIR!</p>
-        <p style="font-size: 1.2rem; color: var(--accent);" id="celebrationTotal"></p>
-        <button class="btn primary glow" onclick="closeCelebration()">Continue Shopping</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHATBOT -->
-  <div id="chatbot" class="chatbot">
-    <div class="chat-header" id="chatToggle">
-      <i class="fas fa-comment-dots"></i> Need Help?
-    </div>
-    <div class="chat-body hidden" id="chatBody">
-      <div class="chat-messages" id="chatMessages">
-        <div class="bot-msg">👋 Hi! How can I help you today?</div>
-      </div>
-      <div class="quick-questions">
-        <button class="quick-q" data-q="What are your best-selling products?">⭐ Best Sellers</button>
-        <button class="quick-q" data-q="What is the return policy?">🔄 Returns</button>
-        <button class="quick-q" data-q="Do you offer free shipping?">🚚 Free Shipping</button>
-        <button class="quick-q" data-q="Are your products cruelty-free?">🐰 Cruelty-Free</button>
-      </div>
-      <div class="chat-input">
-        <input type="text" id="chatInput" placeholder="Ask me anything..." />
-        <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FEEDBACK POPUP -->
-  <div id="feedbackPopup" class="feedback-overlay hidden">
-    <div class="feedback-card">
-      <span id="closeFeedback" class="close-feedback">&times;</span>
-      <h2><i class="fas fa-star"></i> Share Your Feedback</h2>
-      <form id="feedbackForm">
-        <div class="input-group">
-          <label>Your Name</label>
-          <input type="text" id="feedbackName" placeholder="Your name" required />
+    <!-- CART POPUP -->
+    <div id="cartPopup" class="cart-overlay hidden">
+        <div class="cart-card">
+            <span id="closeCart" class="close-cart">&times;</span>
+            <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+            <div id="cartItems"></div>
+            <div id="cartTotal" style="font-weight: bold; margin: 1rem 0;"></div>
+            <div class="payment-options">
+                <button class="btn secondary" id="codPay">Cash on Delivery</button>
+                <button class="btn secondary" id="upiPay">UPI</button>
+                <button class="btn secondary" id="gpayPay">Google Pay</button>
+                <button class="btn secondary" id="phonepePay">PhonePe</button>
+                <button class="btn secondary" id="paytmPay">Paytm</button>
+            </div>
+            <div id="upiPinSection" class="hidden" style="margin: 1rem 0;">
+                <div class="input-group">
+                    <label><i class="fas fa-key"></i> Enter UPI PIN (4 digits)</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="upiPin" placeholder="1234" maxlength="4" pattern="[0-9]{4}" />
+                        <span class="toggle-password" onclick="togglePassword('upiPin', this)"><i class="fas fa-eye"></i></span>
+                    </div>
+                    <small id="pinError" class="error-msg"></small>
+                </div>
+                <button class="btn primary glow" id="confirmUpiPay">Confirm Payment</button>
+            </div>
+            <p id="paymentMsg" style="color: var(--accent);"></p>
+            <button id="clearCart" class="btn secondary">Clear Cart</button>
         </div>
-        <div class="input-group">
-          <label>Rating</label>
-          <div class="star-rating" id="starRating">
-            <i class="fas fa-star" data-rating="1"></i>
-            <i class="fas fa-star" data-rating="2"></i>
-            <i class="fas fa-star" data-rating="3"></i>
-            <i class="fas fa-star" data-rating="4"></i>
-            <i class="fas fa-star" data-rating="5"></i>
-          </div>
-          <small id="ratingError" class="error-msg"></small>
-        </div>
-        <div class="input-group">
-          <label>Your Feedback</label>
-          <textarea id="feedbackText" rows="3" placeholder="Tell us about your experience..."></textarea>
-        </div>
-        <button type="submit" class="btn primary full glow">Submit Feedback</button>
-      </form>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- WISHLIST POPUP -->
+    <div id="wishPopup" class="cart-overlay hidden">
+        <div class="cart-card">
+            <span id="closeWish" class="close-cart">&times;</span>
+            <h2><i class="fas fa-heart"></i> Wishlist</h2>
+            <div id="wishItems"></div>
+            <button id="clearWish" class="btn secondary">Clear Wishlist</button>
+        </div>
+    </div>
+
+    <!-- CELEBRATION POPUP -->
+    <div id="celebrationPopup" class="celebration-overlay hidden">
+        <div class="celebration-card">
+            <div class="confetti">
+                <span>🎉</span><span>✨</span><span>🎊</span><span>🌟</span>
+                <span>🎉</span><span>✨</span><span>🎊</span><span>🌟</span>
+            </div>
+            <div class="celebration-content">
+                <i class="fas fa-trophy" style="font-size: 4rem; color: #f9d71c;"></i>
+                <h2>🎊 Order Placed Successfully!</h2>
+                <p>Thank you for shopping with TIRTIR!</p>
+                <p style="font-size: 1.2rem; color: var(--accent);" id="celebrationTotal"></p>
+                <button class="btn primary glow" onclick="closeCelebration()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <div id="chatbot" class="chatbot">
+        <div class="chat-header" id="chatToggle">
+            <i class="fas fa-comment-dots"></i> Need Help?
+        </div>
+        <div class="chat-body hidden" id="chatBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-msg">👋 Hi! How can I help you today?</div>
+            </div>
+            <div class="quick-questions">
+                <button class="quick-q" data-q="What are your best-selling products?">⭐ Best Sellers</button>
+                <button class="quick-q" data-q="What is the return policy?">🔄 Returns</button>
+                <button class="quick-q" data-q="Do you offer free shipping?">🚚 Free Shipping</button>
+                <button class="quick-q" data-q="Are your products cruelty-free?">🐰 Cruelty-Free</button>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask me anything..." />
+                <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEEDBACK POPUP -->
+    <div id="feedbackPopup" class="feedback-overlay hidden">
+        <div class="feedback-card">
+            <span id="closeFeedback" class="close-feedback">&times;</span>
+            <h2><i class="fas fa-star"></i> Share Your Feedback</h2>
+            <form id="feedbackForm">
+                <div class="input-group">
+                    <label>Your Name</label>
+                    <input type="text" id="feedbackName" placeholder="Your name" required />
+                </div>
+                <div class="input-group">
+                    <label>Rating</label>
+                    <div class="star-rating" id="starRating">
+                        <i class="fas fa-star" data-rating="1"></i>
+                        <i class="fas fa-star" data-rating="2"></i>
+                        <i class="fas fa-star" data-rating="3"></i>
+                        <i class="fas fa-star" data-rating="4"></i>
+                        <i class="fas fa-star" data-rating="5"></i>
+                    </div>
+                    <small id="ratingError" class="error-msg"></small>
+                </div>
+                <div class="input-group">
+                    <label>Your Feedback</label>
+                    <textarea id="feedbackText" rows="3" placeholder="Tell us about your experience..."></textarea>
+                </div>
+                <button type="submit" class="btn primary full glow">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-                </html>
+</html>
