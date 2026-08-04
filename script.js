@@ -1,17 +1,19 @@
-        // ---------- DATA ----------
+    // ---------- DATA ----------
 const products = [
-    { id: 1, name: 'Mask Fit Cushion', price: 899, category: 'cushion', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop', rating: 4.5 },
-    { id: 2, name: 'Lip Tint Dewy', price: 549, category: 'tint', img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop', rating: 4.2 },
-    { id: 3, name: 'Hydro Serum', price: 1299, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop', rating: 4.8 },
-    { id: 4, name: 'Glow Cushion', price: 999, category: 'cushion', img: 'https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=300&fit=crop', rating: 4.7 },
-    { id: 5, name: 'Velvet Tint', price: 649, category: 'tint', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop', rating: 4.3 },
-    { id: 6, name: 'Revitalizing Cream', price: 1599, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300&h=300&fit=crop', rating: 4.6 },
-    { id: 7, name: 'Watery Tint', price: 599, category: 'tint', img: 'https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=300&fit=crop', rating: 4.4 },
-    { id: 8, name: 'Cover Cushion', price: 799, category: 'cushion', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop', rating: 4.1 },
-    { id: 9, name: 'Lip Sleeping Mask', price: 699, category: 'lipcare', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop', rating: 4.9 },
-    { id: 10, name: 'Sheet Mask Set', price: 499, category: 'facemask', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop', rating: 4.4 },
-    { id: 11, name: 'Tint Gloss', price: 749, category: 'lipcare', img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop', rating: 4.6 },
-    { id: 12, name: 'Calming Mask', price: 899, category: 'facemask', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop', rating: 4.3 },
+    { id: 1, name: 'Mask Fit Cushion', price: 899, category: 'cushion', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', rating: 4.5 },
+    { id: 2, name: 'Lip Tint Dewy', price: 549, category: 'tint', img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop&crop=center', rating: 4.2 },
+    { id: 3, name: 'Hydro Glow Serum', price: 1299, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', rating: 4.8 },
+    { id: 4, name: 'Glow Cushion', price: 999, category: 'cushion', img: 'https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=300&fit=crop&crop=center', rating: 4.7 },
+    { id: 5, name: 'Velvet Tint', price: 649, category: 'tint', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', rating: 4.3 },
+    { id: 6, name: 'Revitalizing Cream', price: 1599, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300&h=300&fit=crop&crop=center', rating: 4.6 },
+    { id: 7, name: 'Watery Tint', price: 599, category: 'tint', img: 'https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=300&fit=crop&crop=center', rating: 4.4 },
+    { id: 8, name: 'Cover Cushion', price: 799, category: 'cushion', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', rating: 4.1 },
+    { id: 9, name: 'Lip Sleeping Mask', price: 699, category: 'lipcare', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', rating: 4.9 },
+    { id: 10, name: 'Sheet Mask Set', price: 499, category: 'facemask', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', rating: 4.4 },
+    { id: 11, name: 'Tint Gloss', price: 749, category: 'lipcare', img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop&crop=center', rating: 4.6 },
+    { id: 12, name: 'Calming Face Mask', price: 899, category: 'facemask', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', rating: 4.3 },
+    { id: 13, name: 'Vitamin C Serum', price: 1199, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', rating: 4.7 },
+    { id: 14, name: 'Matte Lip Tint', price: 599, category: 'tint', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', rating: 4.0 },
 ];
 
 let cart = [];
@@ -330,11 +332,10 @@ if (localStorage.getItem('cookieConsent')) cookiePopup.classList.add('hidden');
 // ---------- LOGIN ----------
 const loginModal = document.getElementById('loginModal');
 const loginBtn = document.getElementById('loginBtn');
-const closeLogin = document.getElementById('closeLogin');
 const loginForm = document.getElementById('loginForm');
 
 loginBtn.addEventListener('click', () => loginModal.classList.remove('hidden'));
-closeLogin.addEventListener('click', () => loginModal.classList.add('hidden'));
+// Click outside to close
 loginModal.addEventListener('click', (e) => { if (e.target === loginModal) loginModal.classList.add('hidden'); });
 
 loginForm.addEventListener('submit', (e) => {
@@ -346,24 +347,31 @@ loginForm.addEventListener('submit', (e) => {
     const confirm = document.getElementById('loginConfirm').value.trim();
     let valid = true;
 
-    if (name.length < 2) { document.getElementById('nameError').textContent = 'Name must be at least 2 characters.'; valid = false; } else document
-        .getElementById('nameError').textContent = '';
+    if (name.length < 2) { document.getElementById('nameError').textContent = 'Name must be at least 2 characters.'; valid = false; } else document.getElementById('nameError').textContent = '';
 
-    if (!email.includes('@') || !email.includes('.')) { document.getElementById('emailError').textContent = 'Enter a valid email.'; valid = false; } else
-        document.getElementById('emailError').textContent = '';
+    if (!email.includes('@') || !email.includes('.')) { document.getElementById('emailError').textContent = 'Enter a valid email.'; valid = false; } else document.getElementById('emailError').textContent = '';
 
     const phoneRegex = /^[0-9]{10}$/;
-    if (!phoneRegex.test(phone.replace(/\D/g, ''))) { document.getElementById('phoneError').textContent = 'Enter a valid 10-digit phone number.'; valid = false; } else
-        document.getElementById('phoneError').textContent = '';
+    if (!phoneRegex.test(phone.replace(/\D/g, ''))) { document.getElementById('phoneError').textContent = 'Enter a valid 10-digit phone number.'; valid = false; } else document.getElementById('phoneError').textContent = '';
 
-    if (pass.length < 8 || !/\d/.test(pass)) { document.getElementById('passError').textContent = 'Password must be 8+ chars with a number.'; valid = false; } else
-        document.getElementById('passError').textContent = '';
+    if (pass.length < 8 || !/\d/.test(pass)) { document.getElementById('passError').textContent = 'Password must be 8+ chars with a number.'; valid = false; } else document.getElementById('passError').textContent = '';
 
-    if (pass !== confirm) { document.getElementById('confirmError').textContent = 'Passwords do not match.'; valid = false; } else document
-        .getElementById('confirmError').textContent = '';
+    if (pass !== confirm) { document.getElementById('confirmError').textContent = 'Passwords do not match.'; valid = false; } else document.getElementById('confirmError').textContent = '';
 
-    if (valid) { showToast('✅ Registration successful! Welcome to TIRTIR!'); loginModal.classList.add('hidden'); loginForm.reset(); }
+    if (valid) {
+        showToast('✅ Registration successful! Welcome to TIRTIR!');
+        loginModal.classList.add('hidden');
+        loginForm.reset();
+        // Store login status
+        localStorage.setItem('isLoggedIn', 'true');
+    }
 });
+
+// Check if already logged in
+if (localStorage.getItem('isLoggedIn')) {
+    // User already logged in, we can skip showing login
+    // But we still show login button for demo purposes
+}
 
 // ---------- CATEGORY TABS ----------
 document.querySelectorAll('.cat-tab').forEach(tab => {
@@ -402,26 +410,16 @@ document.querySelectorAll('.dropdown-menu a').forEach(link => {
 });
 
 // ---------- CART / WISHLIST POPUP CONTROLS ----------
-document.getElementById('cartBtn').addEventListener('click', () => { renderCartPopup();
-    cartPopup.classList.remove('hidden'); });
-document.getElementById('closeCart').addEventListener('click', () => { cartPopup.classList.add('hidden');
-    upiPinSection.classList.add('hidden'); });
-document.getElementById('wishBtn').addEventListener('click', () => { renderWishPopup();
-    wishPopup.classList.remove('hidden'); });
+document.getElementById('cartBtn').addEventListener('click', () => { renderCartPopup(); cartPopup.classList.remove('hidden'); });
+document.getElementById('closeCart').addEventListener('click', () => { cartPopup.classList.add('hidden'); upiPinSection.classList.add('hidden'); });
+document.getElementById('wishBtn').addEventListener('click', () => { renderWishPopup(); wishPopup.classList.remove('hidden'); });
 document.getElementById('closeWish').addEventListener('click', () => wishPopup.classList.add('hidden'));
-cartPopup.addEventListener('click', (e) => { if (e.target === cartPopup) { cartPopup.classList.add('hidden');
-        upiPinSection.classList.add('hidden'); } });
+cartPopup.addEventListener('click', (e) => { if (e.target === cartPopup) { cartPopup.classList.add('hidden'); upiPinSection.classList.add('hidden'); } });
 wishPopup.addEventListener('click', (e) => { if (e.target === wishPopup) wishPopup.classList.add('hidden'); });
 
 // ---------- CLEAR ----------
-document.getElementById('clearCart').addEventListener('click', () => { cart = [];
-    updateCartUI();
-    renderCartPopup();
-    showToast('🗑️ Cart cleared.'); });
-document.getElementById('clearWish').addEventListener('click', () => { wishlist = [];
-    updateWishlistUI();
-    renderWishPopup();
-    showToast('🗑️ Wishlist cleared.'); });
+document.getElementById('clearCart').addEventListener('click', () => { cart = []; updateCartUI(); renderCartPopup(); showToast('🗑️ Cart cleared.'); });
+document.getElementById('clearWish').addEventListener('click', () => { wishlist = []; updateWishlistUI(); renderWishPopup(); showToast('🗑️ Wishlist cleared.'); });
 
 // ---------- HERO SHOP ----------
 document.getElementById('heroShopBtn').addEventListener('click', () => {
@@ -499,8 +497,7 @@ const feedbackForm = document.getElementById('feedbackForm');
 const starRating = document.getElementById('starRating');
 let selectedRating = 0;
 
-feedbackLink.addEventListener('click', (e) => { e.preventDefault();
-    feedbackPopup.classList.remove('hidden'); });
+feedbackLink.addEventListener('click', (e) => { e.preventDefault(); feedbackPopup.classList.remove('hidden'); });
 closeFeedback.addEventListener('click', () => feedbackPopup.classList.add('hidden'));
 feedbackPopup.addEventListener('click', (e) => { if (e.target === feedbackPopup) feedbackPopup.classList.add('hidden'); });
 
