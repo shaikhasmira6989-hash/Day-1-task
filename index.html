@@ -24,8 +24,8 @@
     <!-- LOGIN MODAL -->
     <div id="loginModal" class="login-overlay">
         <div class="login-card">
-            <span id="closeLogin" class="close-login">&times;</span>
             <h2><i class="fas fa-user-circle"></i> Create Account</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Login is required to continue shopping</p>
             <form id="loginForm">
                 <div class="input-group">
                     <label><i class="fas fa-user"></i> Full Name</label>
@@ -58,8 +58,8 @@
                     </div>
                     <small class="error-msg" id="confirmError"></small>
                 </div>
-                <button type="submit" class="btn primary full glow">Register <i class="fas fa-arrow-right"></i></button>
-                <p class="form-foot">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+                <button type="submit" class="btn primary full glow">Register & Continue <i class="fas fa-arrow-right"></i></button>
+                <p class="form-foot">By registering, you agree to our Terms & Conditions</p>
             </form>
         </div>
     </div>
@@ -112,16 +112,20 @@
                 <section class="slideshow">
                     <div class="slideshow-container">
                         <div class="slide active">
-                            <img src="https://images.unsplash.com/photo-1508700115894-d9c7f2f55b7a?w=1200&h=400&fit=crop" alt="Taehyung - TIRTIR Ambassador" />
+                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&h=400&fit=crop&crop=center" alt="Taehyung - TIRTIR Ambassador" />
                             <div class="slide-caption">🌟 TAEHYUNG × TIRTIR - The Perfect Glow</div>
                         </div>
                         <div class="slide">
-                            <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1200&h=400&fit=crop" alt="Taehyung - New Collection" />
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop&crop=center" alt="Taehyung - New Collection" />
                             <div class="slide-caption">✨ Discover the New TIRTIR Collection</div>
                         </div>
                         <div class="slide">
-                            <img src="https://images.unsplash.com/photo-1531842477197-54acf89bff98?w=1200&h=400&fit=crop" alt="Taehyung - Best Sellers" />
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&h=400&fit=crop&crop=center" alt="Taehyung - Best Sellers" />
                             <div class="slide-caption">🔥 Best Sellers - As Seen on Taehyung</div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1200&h=400&fit=crop&crop=center" alt="Taehyung - TIRTIR Campaign" />
+                            <div class="slide-caption">💫 TIRTIR × Taehyung - Behind the Scenes</div>
                         </div>
                         <button class="slide-prev" onclick="changeSlide(-1)">❮</button>
                         <button class="slide-next" onclick="changeSlide(1)">❯</button>
@@ -129,6 +133,7 @@
                             <span class="dot active" onclick="currentSlide(0)"></span>
                             <span class="dot" onclick="currentSlide(1)"></span>
                             <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
                         </div>
                     </div>
                 </section>
