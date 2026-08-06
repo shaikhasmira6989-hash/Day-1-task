@@ -1,25 +1,28 @@
-    // ---------- DATA ----------
+// ---------- DATA ----------
 const products = [
-    { id: 1, name: 'Mask Fit Cushion', price: 899, category: 'cushion', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', rating: 4.5 },
-    { id: 2, name: 'Lip Tint Dewy', price: 549, category: 'tint', img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop&crop=center', rating: 4.2 },
-    { id: 3, name: 'Hydro Glow Serum', price: 1299, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', rating: 4.8 },
-    { id: 4, name: 'Glow Cushion', price: 999, category: 'cushion', img: 'https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=300&fit=crop&crop=center', rating: 4.7 },
-    { id: 5, name: 'Velvet Tint', price: 649, category: 'tint', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', rating: 4.3 },
-    { id: 6, name: 'Revitalizing Cream', price: 1599, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300&h=300&fit=crop&crop=center', rating: 4.6 },
-    { id: 7, name: 'Watery Tint', price: 599, category: 'tint', img: 'https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=300&fit=crop&crop=center', rating: 4.4 },
-    { id: 8, name: 'Cover Cushion', price: 799, category: 'cushion', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', rating: 4.1 },
-    { id: 9, name: 'Lip Sleeping Mask', price: 699, category: 'lipcare', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', rating: 4.9 },
-    { id: 10, name: 'Sheet Mask Set', price: 499, category: 'facemask', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', rating: 4.4 },
-    { id: 11, name: 'Tint Gloss', price: 749, category: 'lipcare', img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop&crop=center', rating: 4.6 },
-    { id: 12, name: 'Calming Face Mask', price: 899, category: 'facemask', img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', rating: 4.3 },
-    { id: 13, name: 'Vitamin C Serum', price: 1199, category: 'skincare', img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', rating: 4.7 },
-    { id: 14, name: 'Matte Lip Tint', price: 599, category: 'tint', img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', rating: 4.0 },
+    { id: 1, name: 'Mask Fit Cushion', price: 899, category: 'cushion', img: 'image2.jpeg', rating: 4.5 },
+    { id: 2, name: 'Lip Tint Dewy', price: 549, category: 'tint', img: 'image14.jpeg', rating: 4.2 },
+    { id: 3, name: 'Hydro Glow Spray', price: 1299, category: 'skincare', img: 'image6.jpeg', rating: 4.8 },
+    { id: 4, name: 'Glow Cushion', price: 999, category: 'cushion', img: 'image3.jpeg', rating: 4.7 },
+    { id: 5, name: 'Velvet Blush', price: 649, category: 'tint', img: 'image5.jpeg', rating: 4.3 },
+    { id: 6, name: 'Revitalizing Spray', price: 1599, category: 'skincare', img: 'image16.jpeg', rating: 4.6 },
+    { id: 7, name: 'Watery Tint', price: 599, category: 'tint', img: 'image4.jpeg', rating: 4.4 },
+    { id: 8, name: 'Cover Cushion', price: 799, category: 'cushion', img: 'image13.jpeg', rating: 4.1 },
+    { id: 9, name: 'Lip Sleeping tint', price: 699, category: 'lipcare', img: 'image1.jpeg', rating: 4.9 },
+    { id: 10, name: 'Sheet Mask Spray', price: 499, category: 'facemask', img: 'image16.jpeg', rating: 4.4 },
+    { id: 11, name: 'Tint Gloss', price: 749, category: 'lipcare', img: 'image11.jpeg', rating: 4.6 },
+    { id: 12, name: 'Calming Blush', price: 899, category: 'Blush', img: 'image15.jpeg', rating: 4.3 },
+    { id: 13, name: 'Vitamin C Spray', price: 1199, category: 'skincare', img: 'image6.jpeg', rating: 4.7 },
+    { id: 14, name: 'Matte Lip Tint', price: 599, category: 'tint', img: 'image11.jpeg', rating: 4.0 },
 ];
 
 let cart = [];
 let wishlist = [];
 let currentCategory = 'all';
 let slideIndex = 0;
+let isLoggedIn = false;
+let pendingAction = null;
+let pendingProductId = null;
 
 // ---------- DOM REFS ----------
 const grid = document.getElementById('productGrid');
@@ -36,6 +39,9 @@ const upiPin = document.getElementById('upiPin');
 const pinError = document.getElementById('pinError');
 const celebrationPopup = document.getElementById('celebrationPopup');
 const celebrationTotal = document.getElementById('celebrationTotal');
+const feedbackPopup = document.getElementById('feedbackPopup');
+const loginModal = document.getElementById('loginModal');
+const loginForm = document.getElementById('loginForm');
 
 // ---------- TOGGLE PASSWORD ----------
 function togglePassword(inputId, element) {
@@ -91,6 +97,166 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// ---------- LOGIN VALIDATION ----------
+function validateLoginForm() {
+    let isValid = true;
+
+    // Get all values
+    const name = document.getElementById('loginName').value.trim();
+    const phone = document.getElementById('loginPhone').value.trim();
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+    const confirmPassword = document.getElementById('loginConfirm').value.trim();
+    const address = document.getElementById('loginAddress').value.trim();
+    const terms = document.getElementById('termsCheckbox').checked;
+
+    // Name validation
+    if (name.length < 2) {
+        document.getElementById('nameError').textContent = 'Name must be at least 2 characters.';
+        document.getElementById('loginName').classList.add('error');
+        isValid = false;
+    } else {
+        document.getElementById('nameError').textContent = '';
+        document.getElementById('loginName').classList.remove('error');
+        document.getElementById('loginName').classList.add('success');
+    }
+
+    // Phone validation (10 digits)
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
+        document.getElementById('phoneError').textContent = 'Enter a valid 10-digit phone number.';
+        document.getElementById('loginPhone').classList.add('error');
+        isValid = false;
+    } else {
+        document.getElementById('phoneError').textContent = '';
+        document.getElementById('loginPhone').classList.remove('error');
+        document.getElementById('loginPhone').classList.add('success');
+    }
+
+    // Email validation
+    if (!email.includes('@') || !email.includes('.')) {
+        document.getElementById('emailError').textContent = 'Enter a valid email address.';
+        document.getElementById('loginEmail').classList.add('error');
+        isValid = false;
+    } else {
+        document.getElementById('emailError').textContent = '';
+        document.getElementById('loginEmail').classList.remove('error');
+        document.getElementById('loginEmail').classList.add('success');
+    }
+
+    // Password validation (min 8 chars with number)
+    if (password.length < 8 || !/\d/.test(password)) {
+        document.getElementById('passError').textContent = 'Password must be at least 8 characters with a number.';
+        document.getElementById('loginPassword').classList.add('error');
+        isValid = false;
+    } else {
+        document.getElementById('passError').textContent = '';
+        document.getElementById('loginPassword').classList.remove('error');
+        document.getElementById('loginPassword').classList.add('success');
+    }
+
+    // Confirm password validation
+    if (password !== confirmPassword) {
+        document.getElementById('confirmError').textContent = 'Passwords do not match.';
+        document.getElementById('loginConfirm').classList.add('error');
+        isValid = false;
+    } else {
+        document.getElementById('confirmError').textContent = '';
+        document.getElementById('loginConfirm').classList.remove('error');
+        document.getElementById('loginConfirm').classList.add('success');
+    }
+
+    // Address validation
+    if (address.length < 10) {
+        document.getElementById('addressError').textContent = 'Please enter a complete address (min 10 characters).';
+        document.getElementById('loginAddress').classList.add('error');
+        isValid = false;
+    } else {
+        document.getElementById('addressError').textContent = '';
+        document.getElementById('loginAddress').classList.remove('error');
+        document.getElementById('loginAddress').classList.add('success');
+    }
+
+    // Terms validation
+    if (!terms) {
+        document.getElementById('termsError').textContent = 'You must agree to the Terms & Conditions.';
+        isValid = false;
+    } else {
+        document.getElementById('termsError').textContent = '';
+    }
+
+    return isValid;
+}
+
+// ---------- LOGIN ----------
+function showLogin(action, productId) {
+    pendingAction = action;
+    pendingProductId = productId;
+    loginModal.classList.remove('hidden');
+    // Reset form
+    loginForm.reset();
+    document.querySelectorAll('.success, .error').forEach(el => {
+        el.classList.remove('success', 'error');
+    });
+    document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+}
+
+document.getElementById('closeLogin').addEventListener('click', () => {
+    loginModal.classList.add('hidden');
+    pendingAction = null;
+    pendingProductId = null;
+});
+
+loginModal.addEventListener('click', (e) => {
+    if (e.target === loginModal) {
+        loginModal.classList.add('hidden');
+        pendingAction = null;
+        pendingProductId = null;
+    }
+});
+
+// Real-time validation on input
+document.querySelectorAll('#loginForm input, #loginForm textarea').forEach(input => {
+    input.addEventListener('input', function() {
+        // Remove error/success classes
+        this.classList.remove('error', 'success');
+        const errorEl = document.getElementById(this.id + 'Error');
+        if (errorEl) errorEl.textContent = '';
+    });
+});
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (validateLoginForm()) {
+        isLoggedIn = true;
+        showToast('✅ Registration successful! Welcome to TIRTIR!');
+        loginModal.classList.add('hidden');
+        loginForm.reset();
+
+        // Store user data
+        const userData = {
+            name: document.getElementById('loginName').value.trim(),
+            phone: document.getElementById('loginPhone').value.trim(),
+            email: document.getElementById('loginEmail').value.trim(),
+            address: document.getElementById('loginAddress').value.trim()
+        };
+        localStorage.setItem('userData', JSON.stringify(userData));
+        localStorage.setItem('isLoggedIn', 'true');
+
+        // Execute pending action
+        if (pendingAction && pendingProductId) {
+            if (pendingAction === 'cart') {
+                addToCart(pendingProductId);
+            } else if (pendingAction === 'wishlist') {
+                addToWishlist(pendingProductId);
+            }
+            pendingAction = null;
+            pendingProductId = null;
+        }
+    }
+});
+
 // ---------- RENDER PRODUCTS ----------
 function renderProducts(category = 'all') {
     const filtered = category === 'all' ? products : products.filter(p => p.category === category);
@@ -104,13 +270,30 @@ function renderProducts(category = 'all') {
                     <div class="rating">${stars} ${p.rating}</div>
                     <div class="price">₹${p.price}</div>
                     <div class="actions">
-                        <button onclick="addToCart(${p.id})"><i class="fas fa-cart-plus"></i> Cart</button>
-                        <button onclick="addToWishlist(${p.id})"><i class="fas fa-heart"></i> Wish</button>
+                        <button onclick="handleAddToCart(${p.id})"><i class="fas fa-cart-plus"></i> Cart</button>
+                        <button onclick="handleAddToWishlist(${p.id})"><i class="fas fa-heart"></i> Wish</button>
                     </div>
                 </div>
             `;
         }).join('');
     }
+}
+
+// ---------- HANDLE CART/WISHLIST WITH LOGIN ----------
+function handleAddToCart(id) {
+    if (!isLoggedIn) {
+        showLogin('cart', id);
+        return;
+    }
+    addToCart(id);
+}
+
+function handleAddToWishlist(id) {
+    if (!isLoggedIn) {
+        showLogin('wishlist', id);
+        return;
+    }
+    addToWishlist(id);
 }
 
 // ---------- CART ----------
@@ -173,7 +356,10 @@ function updateCartQty(id, newQty) {
 function addToWishlist(id) {
     const product = products.find(p => p.id === id);
     if (!product) return;
-    if (wishlist.some(item => item.id === id)) { showToast(`💔 ${product.name} already in wishlist.`); return; }
+    if (wishlist.some(item => item.id === id)) {
+        showToast(`💔 ${product.name} already in wishlist.`);
+        return;
+    }
     wishlist.push({ ...product });
     updateWishlistUI();
     showToast(`❤️ ${product.name} added to wishlist!`);
@@ -224,11 +410,8 @@ function processPayment(method) {
         showCelebration(total);
         showToast('🎉 Order placed successfully!');
         setTimeout(() => {
-            if (!localStorage.getItem('feedbackShown')) {
-                feedbackPopup.classList.remove('hidden');
-                localStorage.setItem('feedbackShown', 'true');
-            }
-        }, 2000);
+            feedbackPopup.classList.remove('hidden');
+        }, 1500);
     }, 1500);
 }
 
@@ -272,11 +455,8 @@ document.getElementById('confirmUpiPay').addEventListener('click', () => {
         showCelebration(total);
         showToast('🎉 Order placed successfully!');
         setTimeout(() => {
-            if (!localStorage.getItem('feedbackShown')) {
-                feedbackPopup.classList.remove('hidden');
-                localStorage.setItem('feedbackShown', 'true');
-            }
-        }, 2000);
+            feedbackPopup.classList.remove('hidden');
+        }, 1500);
     }, 1500);
 });
 
@@ -329,50 +509,6 @@ document.getElementById('declineCookies').addEventListener('click', () => {
 });
 if (localStorage.getItem('cookieConsent')) cookiePopup.classList.add('hidden');
 
-// ---------- LOGIN ----------
-const loginModal = document.getElementById('loginModal');
-const loginBtn = document.getElementById('loginBtn');
-const loginForm = document.getElementById('loginForm');
-
-loginBtn.addEventListener('click', () => loginModal.classList.remove('hidden'));
-// Click outside to close
-loginModal.addEventListener('click', (e) => { if (e.target === loginModal) loginModal.classList.add('hidden'); });
-
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('loginName').value.trim();
-    const email = document.getElementById('loginEmail').value.trim();
-    const phone = document.getElementById('loginPhone').value.trim();
-    const pass = document.getElementById('loginPassword').value.trim();
-    const confirm = document.getElementById('loginConfirm').value.trim();
-    let valid = true;
-
-    if (name.length < 2) { document.getElementById('nameError').textContent = 'Name must be at least 2 characters.'; valid = false; } else document.getElementById('nameError').textContent = '';
-
-    if (!email.includes('@') || !email.includes('.')) { document.getElementById('emailError').textContent = 'Enter a valid email.'; valid = false; } else document.getElementById('emailError').textContent = '';
-
-    const phoneRegex = /^[0-9]{10}$/;
-    if (!phoneRegex.test(phone.replace(/\D/g, ''))) { document.getElementById('phoneError').textContent = 'Enter a valid 10-digit phone number.'; valid = false; } else document.getElementById('phoneError').textContent = '';
-
-    if (pass.length < 8 || !/\d/.test(pass)) { document.getElementById('passError').textContent = 'Password must be 8+ chars with a number.'; valid = false; } else document.getElementById('passError').textContent = '';
-
-    if (pass !== confirm) { document.getElementById('confirmError').textContent = 'Passwords do not match.'; valid = false; } else document.getElementById('confirmError').textContent = '';
-
-    if (valid) {
-        showToast('✅ Registration successful! Welcome to TIRTIR!');
-        loginModal.classList.add('hidden');
-        loginForm.reset();
-        // Store login status
-        localStorage.setItem('isLoggedIn', 'true');
-    }
-});
-
-// Check if already logged in
-if (localStorage.getItem('isLoggedIn')) {
-    // User already logged in, we can skip showing login
-    // But we still show login button for demo purposes
-}
-
 // ---------- CATEGORY TABS ----------
 document.querySelectorAll('.cat-tab').forEach(tab => {
     tab.addEventListener('click', function() {
@@ -380,6 +516,9 @@ document.querySelectorAll('.cat-tab').forEach(tab => {
         this.classList.add('active');
         currentCategory = this.dataset.cat;
         renderProducts(currentCategory);
+        if (!document.getElementById('homePage').classList.contains('active')) {
+            navigateTo('home');
+        }
     });
 });
 
@@ -409,17 +548,69 @@ document.querySelectorAll('.dropdown-menu a').forEach(link => {
     });
 });
 
+// ---------- FOOTER CATEGORY LINKS ----------
+document.querySelectorAll('.footer-cat-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const cat = this.dataset.cat;
+        navigateTo('home');
+        setTimeout(() => {
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.cat-tab[data-cat="${cat}"]`)?.classList.add('active');
+            currentCategory = cat;
+            renderProducts(cat);
+        }, 300);
+    });
+});
+
 // ---------- CART / WISHLIST POPUP CONTROLS ----------
-document.getElementById('cartBtn').addEventListener('click', () => { renderCartPopup(); cartPopup.classList.remove('hidden'); });
-document.getElementById('closeCart').addEventListener('click', () => { cartPopup.classList.add('hidden'); upiPinSection.classList.add('hidden'); });
-document.getElementById('wishBtn').addEventListener('click', () => { renderWishPopup(); wishPopup.classList.remove('hidden'); });
+document.getElementById('cartBtn').addEventListener('click', () => {
+    if (!isLoggedIn) {
+        showLogin('view_cart', null);
+        return;
+    }
+    renderCartPopup();
+    cartPopup.classList.remove('hidden');
+});
+
+document.getElementById('closeCart').addEventListener('click', () => {
+    cartPopup.classList.add('hidden');
+    upiPinSection.classList.add('hidden');
+});
+
+document.getElementById('wishBtn').addEventListener('click', () => {
+    if (!isLoggedIn) {
+        showLogin('view_wishlist', null);
+        return;
+    }
+    renderWishPopup();
+    wishPopup.classList.remove('hidden');
+});
+
 document.getElementById('closeWish').addEventListener('click', () => wishPopup.classList.add('hidden'));
-cartPopup.addEventListener('click', (e) => { if (e.target === cartPopup) { cartPopup.classList.add('hidden'); upiPinSection.classList.add('hidden'); } });
-wishPopup.addEventListener('click', (e) => { if (e.target === wishPopup) wishPopup.classList.add('hidden'); });
+cartPopup.addEventListener('click', (e) => {
+    if (e.target === cartPopup) {
+        cartPopup.classList.add('hidden');
+        upiPinSection.classList.add('hidden');
+    }
+});
+wishPopup.addEventListener('click', (e) => {
+    if (e.target === wishPopup) wishPopup.classList.add('hidden');
+});
 
 // ---------- CLEAR ----------
-document.getElementById('clearCart').addEventListener('click', () => { cart = []; updateCartUI(); renderCartPopup(); showToast('🗑️ Cart cleared.'); });
-document.getElementById('clearWish').addEventListener('click', () => { wishlist = []; updateWishlistUI(); renderWishPopup(); showToast('🗑️ Wishlist cleared.'); });
+document.getElementById('clearCart').addEventListener('click', () => {
+    cart = [];
+    updateCartUI();
+    renderCartPopup();
+    showToast('🗑️ Cart cleared.');
+});
+document.getElementById('clearWish').addEventListener('click', () => {
+    wishlist = [];
+    updateWishlistUI();
+    renderWishPopup();
+    showToast('🗑️ Wishlist cleared.');
+});
 
 // ---------- HERO SHOP ----------
 document.getElementById('heroShopBtn').addEventListener('click', () => {
@@ -469,7 +660,9 @@ chatSend.addEventListener('click', () => {
     }, 500);
 });
 
-chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') chatSend.click(); });
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') chatSend.click();
+});
 
 // Quick questions
 document.querySelectorAll('.quick-q').forEach(btn => {
@@ -490,16 +683,21 @@ document.querySelectorAll('.quick-q').forEach(btn => {
 });
 
 // ---------- FEEDBACK ----------
-const feedbackPopup = document.getElementById('feedbackPopup');
-const feedbackLink = document.getElementById('feedbackLink');
 const closeFeedback = document.getElementById('closeFeedback');
 const feedbackForm = document.getElementById('feedbackForm');
 const starRating = document.getElementById('starRating');
 let selectedRating = 0;
 
-feedbackLink.addEventListener('click', (e) => { e.preventDefault(); feedbackPopup.classList.remove('hidden'); });
 closeFeedback.addEventListener('click', () => feedbackPopup.classList.add('hidden'));
-feedbackPopup.addEventListener('click', (e) => { if (e.target === feedbackPopup) feedbackPopup.classList.add('hidden'); });
+feedbackPopup.addEventListener('click', (e) => {
+    if (e.target === feedbackPopup) feedbackPopup.classList.add('hidden');
+});
+
+// Feedback link in footer
+document.getElementById('feedbackLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    feedbackPopup.classList.remove('hidden');
+});
 
 starRating.querySelectorAll('i').forEach(star => {
     star.addEventListener('click', function() {
@@ -513,7 +711,10 @@ feedbackForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('feedbackName').value.trim();
     if (!name) { alert('Please enter your name.'); return; }
-    if (selectedRating === 0) { document.getElementById('ratingError').textContent = 'Please select a rating.'; return; }
+    if (selectedRating === 0) {
+        document.getElementById('ratingError').textContent = 'Please select a rating.';
+        return;
+    }
     showToast('🌟 Thank you for your feedback!');
     feedbackPopup.classList.add('hidden');
     feedbackForm.reset();
