@@ -1,4 +1,4 @@
-// ---------- DATA WITH REAL MAKEUP & SKINCARE IMAGES ----------
+// ---------- DATA WITH REAL UNIQUE MAKEUP & SKINCARE IMAGES ----------
 const products = [
     // CUSHION PRODUCTS - Real cushion/foundation images
     { 
@@ -22,7 +22,7 @@ const products = [
         name: 'Cover Cushion', 
         price: 799, 
         category: 'cushion', 
-        img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', 
+        img: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&h=300&fit=crop&crop=center', 
         rating: 4.1 
     },
 
