@@ -1,4 +1,4 @@
-// ---------- DATA WITH REAL UNIQUE MAKEUP & SKINCARE IMAGES ----------
+// ---------- DATA WITH REAL MAKEUP & SKINCARE PRODUCT IMAGES ----------
 const products = [
     // CUSHION PRODUCTS - Real cushion/foundation images
     { 
