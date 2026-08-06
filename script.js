@@ -1,19 +1,126 @@
-// ---------- DATA ----------
+// ---------- DATA WITH REAL MAKEUP & SKINCARE IMAGES ----------
 const products = [
-    { id: 1, name: 'Mask Fit Cushion', price: 899, category: 'cushion', img: 'image2.jpeg', rating: 4.5 },
-    { id: 2, name: 'Lip Tint Dewy', price: 549, category: 'tint', img: 'image14.jpeg', rating: 4.2 },
-    { id: 3, name: 'Hydro Glow Spray', price: 1299, category: 'skincare', img: 'image6.jpeg', rating: 4.8 },
-    { id: 4, name: 'Glow Cushion', price: 999, category: 'cushion', img: 'image3.jpeg', rating: 4.7 },
-    { id: 5, name: 'Velvet Blush', price: 649, category: 'tint', img: 'image5.jpeg', rating: 4.3 },
-    { id: 6, name: 'Revitalizing Spray', price: 1599, category: 'skincare', img: 'image16.jpeg', rating: 4.6 },
-    { id: 7, name: 'Watery Tint', price: 599, category: 'tint', img: 'image4.jpeg', rating: 4.4 },
-    { id: 8, name: 'Cover Cushion', price: 799, category: 'cushion', img: 'image13.jpeg', rating: 4.1 },
-    { id: 9, name: 'Lip Sleeping tint', price: 699, category: 'lipcare', img: 'image1.jpeg', rating: 4.9 },
-    { id: 10, name: 'Sheet Mask Spray', price: 499, category: 'facemask', img: 'image16.jpeg', rating: 4.4 },
-    { id: 11, name: 'Tint Gloss', price: 749, category: 'lipcare', img: 'image11.jpeg', rating: 4.6 },
-    { id: 12, name: 'Calming Blush', price: 899, category: 'Blush', img: 'image15.jpeg', rating: 4.3 },
-    { id: 13, name: 'Vitamin C Spray', price: 1199, category: 'skincare', img: 'image6.jpeg', rating: 4.7 },
-    { id: 14, name: 'Matte Lip Tint', price: 599, category: 'tint', img: 'image11.jpeg', rating: 4.0 },
+    // CUSHION PRODUCTS - Real cushion/foundation images
+    { 
+        id: 1, 
+        name: 'Mask Fit Cushion', 
+        price: 899, 
+        category: 'cushion', 
+        img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.5 
+    },
+    { 
+        id: 4, 
+        name: 'Glow Cushion', 
+        price: 999, 
+        category: 'cushion', 
+        img: 'https://images.unsplash.com/photo-1559599238-308793637427?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.7 
+    },
+    { 
+        id: 8, 
+        name: 'Cover Cushion', 
+        price: 799, 
+        category: 'cushion', 
+        img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.1 
+    },
+
+    // TINT PRODUCTS - Real lip tint/lipstick images
+    { 
+        id: 2, 
+        name: 'Lip Tint Dewy', 
+        price: 549, 
+        category: 'tint', 
+        img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.2 
+    },
+    { 
+        id: 5, 
+        name: 'Velvet Tint', 
+        price: 649, 
+        category: 'tint', 
+        img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.3 
+    },
+    { 
+        id: 7, 
+        name: 'Watery Tint', 
+        price: 599, 
+        category: 'tint', 
+        img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.4 
+    },
+    { 
+        id: 14, 
+        name: 'Matte Lip Tint', 
+        price: 599, 
+        category: 'tint', 
+        img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.0 
+    },
+
+    // SKINCARE PRODUCTS - Real skincare/serum/cream images
+    { 
+        id: 3, 
+        name: 'Hydro Glow Spray', 
+        price: 1299, 
+        category: 'skincare', 
+        img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.8 
+    },
+    { 
+        id: 6, 
+        name: 'Revitalizing Cream', 
+        price: 1599, 
+        category: 'skincare', 
+        img: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.6 
+    },
+    { 
+        id: 13, 
+        name: 'Vitamin C Serum', 
+        price: 1199, 
+        category: 'skincare', 
+        img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.7 
+    },
+
+    // LIP CARE PRODUCTS - Real lip care/lip mask images
+    { 
+        id: 9, 
+        name: 'Lip Sleeping Mask', 
+        price: 699, 
+        category: 'lipcare', 
+        img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.9 
+    },
+    { 
+        id: 11, 
+        name: 'Tint Gloss', 
+        price: 749, 
+        category: 'lipcare', 
+        img: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.6 
+    },
+
+    // FACE MASK PRODUCTS - Real face mask/sheet mask images
+    { 
+        id: 10, 
+        name: 'Sheet Mask Set', 
+        price: 499, 
+        category: 'facemask', 
+        img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.4 
+    },
+    { 
+        id: 12, 
+        name: 'Calming Face Mask', 
+        price: 899, 
+        category: 'facemask', 
+        img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&crop=center', 
+        rating: 4.3 
+    }
 ];
 
 let cart = [];
